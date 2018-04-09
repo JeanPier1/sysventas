@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejemplo;
+package ejemplo_capcha;
 
 import static java.lang.Math.sqrt;
 import java.util.Scanner;
