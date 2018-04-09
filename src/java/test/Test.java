@@ -5,6 +5,9 @@
  */
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import pe.edu.upeu.syspedidos.dao.UsuarioDaoImp;
 import pe.edu.upeu.syspedidos.interfaces.UsuarioDAO;
 import pe.edu.upeu.syspedidos.util.Conexion;
@@ -31,8 +34,9 @@ public class Test {
   }
   }
   static void valida(){
+      List<Map<String,Object>> datos = new ArrayList<>();
    if(ao.validarUsuario("emilyc", "123")!=null){
-       System.out.println("Si");
+       System.out.println(ao.validarUsuario("emilyc", "123"));
    }else{
        System.out.println("No");
    }

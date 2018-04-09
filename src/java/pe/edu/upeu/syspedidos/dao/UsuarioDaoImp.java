@@ -25,7 +25,12 @@ public class UsuarioDaoImp implements UsuarioDAO{
     private PreparedStatement ps;
     private ResultSet rs;
     private Connection cx;
-    private static final String SQL_VALIDA = "SELECT *FROM usuario WHERE nom_user = ? and clave = ? and estado = '1'";
+    private static final String SQL_VALIDA = "SELECT p.nombres, p.apellidos, u.idusuario, u.nom_user, r.nom_rol" +
+    "  FROM usuario as u, rol as r, persona p" +
+    "  where p.idpersona= u.idpersona and" +
+    "  u.idrol = r.idrol" +
+    "  and u.nom_user = ? and" +
+    "  u.clave = ? and estado = '1'";
     @Override
     public int create(Usuario c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -62,8 +67,11 @@ public class UsuarioDaoImp implements UsuarioDAO{
             ps.setString(2, clave);
             rs = ps.executeQuery();
             while(rs.next()){
-               map.put("nombre", rs.getString("nombres"));
-               
+               map.put("nom", rs.getString("nombres"));
+               map.put("apell", rs.getString("apellidos"));
+               map.put("iduser", rs.getInt("idusuario"));
+               map.put("user", rs.getString("nom_user"));
+               map.put("rol", rs.getString("nom_rol"));
                datos.add(map);
                
             }
