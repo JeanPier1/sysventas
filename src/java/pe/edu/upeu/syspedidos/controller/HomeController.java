@@ -7,6 +7,7 @@ package pe.edu.upeu.syspedidos.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,12 +37,16 @@ public class HomeController extends HttpServlet {
         PrintWriter out = response.getWriter();
         String user = request.getParameter("user");
         String clave = request.getParameter("clave");
+        RequestDispatcher dispatcher;
+        String url = "";
         if(dao.validarUsuario(user, clave)==1){
-            out.println("Bienvenido: "+user+" / "+clave);
+            url = "menu.jsp";
+            //out.println("Bienvenido: "+user+" / "+clave);
         }else{
-            out.println("Usuario o Contraseña no existe..!");
+            url = "index.jsp";
         }
-        
+        dispatcher = request.getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
