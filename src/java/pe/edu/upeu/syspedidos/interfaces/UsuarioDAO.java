@@ -19,5 +19,5 @@ public interface UsuarioDAO {
     int delete(int key);
     Usuario read(int key);
     List<Map<String, Object>> readAll();
-    int validarUsuario(String user, String clave);
+    List<Map<String, Object>> validarUsuario(String user, String clave);
 }

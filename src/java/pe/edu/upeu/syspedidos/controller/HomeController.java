@@ -39,7 +39,7 @@ public class HomeController extends HttpServlet {
         String clave = request.getParameter("clave");
         RequestDispatcher dispatcher;
         String url = "";
-        if(dao.validarUsuario(user, clave)==1){
+        if(dao.validarUsuario(user, clave)==null){
             url = "menu.jsp";
             //out.println("Bienvenido: "+user+" / "+clave);
         }else{

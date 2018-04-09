@@ -31,7 +31,7 @@ public class Test {
   }
   }
   static void valida(){
-   if(ao.validarUsuario("emilyc", "123")==1){
+   if(ao.validarUsuario("emilyc", "123")!=null){
        System.out.println("Si");
    }else{
        System.out.println("No");

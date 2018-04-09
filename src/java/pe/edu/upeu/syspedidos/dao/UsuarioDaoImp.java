@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import pe.edu.upeu.syspedidos.dto.Usuario;
@@ -50,8 +52,9 @@ public class UsuarioDaoImp implements UsuarioDAO{
     }
 
     @Override
-    public int validarUsuario(String user, String clave) {
-        int x = 0;
+    public List<Map<String,Object>> validarUsuario(String user, String clave) {
+        List<Map<String,Object>> datos = new ArrayList<>();
+        Map<String,Object> map = new HashMap<>();
         try {
             cx = Conexion.getConexion();
             ps = cx.prepareStatement(SQL_VALIDA);
@@ -59,12 +62,15 @@ public class UsuarioDaoImp implements UsuarioDAO{
             ps.setString(2, clave);
             rs = ps.executeQuery();
             while(rs.next()){
-                x = 1;
+               map.put("nombre", rs.getString("nombres"));
+               
+               datos.add(map);
+               
             }
         } catch (SQLException e) {
             System.out.println("Error:"+e);
         }
-       return x;
+       return datos;
     }
     
 }
