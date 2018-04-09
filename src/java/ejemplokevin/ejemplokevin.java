@@ -16,13 +16,13 @@ public class ejemplokevin {
         Scanner lector=new Scanner(System.in);
         
         System.out.println("Bienvenido a calcula tu raiz");
-        System.out.println("Ingrese Ingrese el valor de la raiz ");
+        System.out.println("Ingrese el valor de la raiz :");
         double raiz=lector.nextInt();
-        System.out.println("Ingrese la variable");
+        System.out.println("Ingrese porfavor la variable :");
         double variable=lector.nextDouble();
         double respuesta;
         respuesta=asd(raiz,variable);
-        System.out.println(""+respuesta);
+        System.out.println("Raiz "+raiz+" de "+variable+" es :"+respuesta);
         
         
     }
