@@ -1,5 +1,5 @@
 
-package Ejemplo;
+package SamuelMauricioLaime;
 import javax.swing.JOptionPane;
 public class SamuelMauricio {
     public static void main(String[] args) {
